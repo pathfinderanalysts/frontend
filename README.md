@@ -5,7 +5,9 @@ version 0.15.1.
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+If you do it the first time please run `npm update` for uploading of all dependencies.
+
+Run `grunt` for building and `grunt serve` for preview. For running `grunt serve` you must have created build.
 
 ## Testing
 
