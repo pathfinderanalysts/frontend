@@ -36,6 +36,31 @@ module.exports = function (grunt) {
             },
             gruntfile: {
                 files: ['Gruntfile.js']
+            },
+            livereload: {
+                options: {
+                    livereload: '<%= connect.options.livereload %>'
+                },
+                files: [
+                    '<%= yeoman.app %>/{,*/}*.html',
+                    'build/styles/{,*/}*.css',
+                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                ]
+            }
+        },
+
+        // The actual grunt server settings
+        connect: {
+            options: {
+                port: 9000,
+                hostname: 'localhost',
+                livereload: 35729
+            },
+            build: {
+                options: {
+                    open: true,
+                    base: '<%= yeoman.build %>'
+                }
             }
         },
 
@@ -160,8 +185,8 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
-            'clean:build',
             'concurrent:server',
+            'connect:build',
             'watch'
         ]);
     });
